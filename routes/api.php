@@ -25,3 +25,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  * http://127.0.0.1:8000/api/users/create
  */
 Route::post('/users/create', [UserController::class, 'store']);
+
+/**
+ * 'index' is a method defined in the UserController
+ *
+ * http://127.0.0.1:8000/api/users/all
+ */
+Route::get('/users/all', [UserController::class, 'index']);

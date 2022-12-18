@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
+     * GET ALL USERS
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-
+        return User::all();
     }
 
     /**
