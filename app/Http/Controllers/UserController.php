@@ -74,6 +74,7 @@ class UserController extends Controller
     }
 
     /**
+     * DELETE
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -81,6 +82,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return User::destroy($id);
+    }
+
+    // public function search($nameoremail){
+    //     return User::where('name', 'LIKE', "%$nameoremail%")
+    //         ->orWhere('email', 'LIKE', "%$nameoremail%");
+    // }
+
+    public function search($name){
+        return User::where('name','like','%'.$name.'%')->get();
     }
 }

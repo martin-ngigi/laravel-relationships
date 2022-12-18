@@ -66,3 +66,8 @@ reponse
     "created_at": "2022-12-18T13:49:27.000000Z",
     "updated_at": "2022-12-18T14:08:50.000000Z"
 }
+
+5. Delete user
+endpoint ->  http://127.0.0.1:8000/api/users/delete/1
+
+6. search user

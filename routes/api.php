@@ -49,3 +49,16 @@ Route::get('/users/{id}', [UserController::class,'show']);
  */
 Route::put('/users/update/{id}', [UserController::class,'update']);
 
+/**
+ * 'destroy' is a method defined in the UserController
+ *
+ * http://127.0.0.1:8000/api/users/delete/1
+ */
+Route::delete('/users/delete/{id}', [UserController::class,'destroy']);
+
+/**
+ * 'search' is a method defined in the UserController
+ *
+ * http://127.0.0.1:8000/api/users/search/martin
+ */
+Route::get('/users/search/{name}', [UserController::class,'search']);
