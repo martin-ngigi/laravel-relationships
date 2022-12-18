@@ -32,3 +32,12 @@ Route::post('/users/create', [UserController::class, 'store']);
  * http://127.0.0.1:8000/api/users/all
  */
 Route::get('/users/all', [UserController::class, 'index']);
+
+
+/**
+ * 'show' is a method defined in the UserController
+ *
+ * http://127.0.0.1:8000/api/users/1
+ */
+Route::get('/users/{id}', [UserController::class,'show']);
+

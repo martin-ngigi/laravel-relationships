@@ -44,8 +44,8 @@ class UserController extends Controller
         return User::create($request->all());
 
     }
-
     /**
+     * GET -> get one user by id
      * Display the specified resource.
      *
      * @param  int  $id
@@ -54,6 +54,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        return User::find($id);
     }
 
     /**
