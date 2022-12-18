@@ -10,7 +10,9 @@ class Phone extends Model
     use HasFactory;
 
     protected $fillable = [
-        'phone_number'
+        'user_id',
+        'phone_number',
+        'phone_description'
     ];
 
     /**
@@ -19,6 +21,6 @@ class Phone extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

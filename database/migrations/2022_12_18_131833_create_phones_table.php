@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
-            $table->string('tile');
-            $table->string('body');
-            $table->integer('user_id');//foreign key
+            $table->string('phone_number');
+            $table->string('phone_description');
+            $table->foreignId('user_id');//foreign key
             $table->timestamps();
         });
     }

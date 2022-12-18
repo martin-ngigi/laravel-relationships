@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -80,3 +81,10 @@ Route::post('/profile/create', [ProfileController::class, 'store']);
  *  http://127.0.0.1:8000/api/user_resource
  */
 Route::get('/user_resource', [UserController::class, 'get_user_resource']);
+
+//CREATE PHONE
+/**
+ * 'store' is a method defined in the PhoneController
+ *  http://127.0.0.1:8000/api/create/phone
+ */
+Route::post('/create/phone', [PhoneController::class, 'store']);

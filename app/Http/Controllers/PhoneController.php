@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Phone;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PhoneController extends Controller
@@ -25,12 +26,34 @@ class PhoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $this->validate($request, [
-            'phone_number' =>'required|unique:users,phone',
-        ]);
+        //METHOD 1
+        // $this->validate($request, [
+        //     'user_id' =>'required',
+        //     'phone_number' =>'required',
+        //     'phone_description'=>'required',
+        // ]);
+        // return Phone::create($request->all());
 
-        return Phone::create($request->all());
+
+        //METHOD 2
+        // $user = User::find($request->user_id);
+        // $phone = new Phone();
+        // $phone->user_id = $user->id;
+        // $phone->phone_number = $request->phone_number;
+        // $phone->phone_description = $request->phone_description;
+        // $phone->save();
+        // return response()->json(['success' => "Phone created successfully", 'phone'=>$phone]);
+
+        //METHOD 3
+        $user = User::find($request->user_id);
+        $phone = $user->phone()->create([
+            'user_id' => $request->user_id,
+            'phone_number' => $request->phone_number,
+            'phone_description' => $request->phone_description,
+            //or
+            //$request->all()
+        ]);
+        return $phone;
     }
 
     /**

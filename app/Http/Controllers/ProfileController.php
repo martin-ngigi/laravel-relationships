@@ -32,14 +32,18 @@ class ProfileController extends Controller
             'profile_name' =>'required',
         ]);
 
+        //METHOD 1
         //return Profile::create($request->all());
 
+        //METHOD 2
         // $user = User::find($request->user_id);
         // $profile = new Profile();
         // $profile->user_id = $user->id;
         // $profile->profile_name = $request->profile_name;
         // $profile->save();
+        // return response()->json(['success' => "Profile created successfully", 'profile'=>$profile]);
 
+        //METHOD 3
         $user = User::find($request->user_id);
         $profile = $user->profile()->create([
             'user_id' => $request->user_id,
@@ -47,7 +51,6 @@ class ProfileController extends Controller
             //or
             //$request->all()
         ]);
-
         return $profile;
     }
 
