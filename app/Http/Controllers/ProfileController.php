@@ -34,22 +34,19 @@ class ProfileController extends Controller
 
         //return Profile::create($request->all());
 
-        $user = User::find($request->user_id);
-        $profile = new Profile();
-        $profile->user_id = $user->id;
-        $profile->profile_name = $request->profile_name;
-        $profile->save();
+        // $user = User::find($request->user_id);
+        // $profile = new Profile();
+        // $profile->user_id = $user->id;
+        // $profile->profile_name = $request->profile_name;
+        // $profile->save();
 
-        //$user = auth()->user();
-        // $profile = $user->profile;
-        // $name = $user->profile->profile_name;
-        // //create profile
-        // $profile = $user->profile()->create([
-        //     'user_id' => $request->user_id,
-        //     'profile_name' => $request->profile_name
-        //     //or
-        //     //$request->all()
-        // ]);
+        $user = User::find($request->user_id);
+        $profile = $user->profile()->create([
+            'user_id' => $request->user_id,
+            'profile_name' => $request->profile_name
+            //or
+            //$request->all()
+        ]);
 
         return $profile;
     }
