@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Phone;
+use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class PhoneController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,10 +28,30 @@ class PhoneController extends Controller
     {
         //
         $this->validate($request, [
-            'phone_number' =>'required|unique:users,phone',
+            'user_id' =>'required',
+            'profile_name' =>'required',
         ]);
 
-        return Phone::create($request->all());
+        //return Profile::create($request->all());
+
+        $user = User::find($request->user_id);
+        $profile = new Profile();
+        $profile->user_id = $user->id;
+        $profile->profile_name = $request->profile_name;
+        $profile->save();
+
+        //$user = auth()->user();
+        // $profile = $user->profile;
+        // $name = $user->profile->profile_name;
+        // //create profile
+        // $profile = $user->profile()->create([
+        //     'user_id' => $request->user_id,
+        //     'profile_name' => $request->profile_name
+        //     //or
+        //     //$request->all()
+        // ]);
+
+        return $profile;
     }
 
     /**

@@ -1,0 +1,8 @@
+LINK -> https://ralphjsmit.com/laravel-eloquent-relationships
+
+One-To-One Eloquent relationship
+----------------------------------
+-Relationship is talking about one User that has one Profile.
+    And if you're talking about Something that has something(s) else, you usually add this column to the second model.
+    You could say that the first model 'possesses' the second model'.
+    i.e. we place an "user_id" on the Profile model and NOT  "profile_id" on the User model.

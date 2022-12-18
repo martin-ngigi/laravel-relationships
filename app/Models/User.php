@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -48,5 +49,14 @@ class User extends Authenticatable
      */
     public function phone(){
         return $this->hasOne(Phone::class, 'foreign_key');
+    }
+
+    /**
+     * one user has one profile
+     * Summary of profile
+     * @return HasOne
+     */
+    public function profile(): HasOne{
+        return $this->hasOne(Profile::class, 'user_id');  // Omit the second parameter if you're following convention
     }
 }

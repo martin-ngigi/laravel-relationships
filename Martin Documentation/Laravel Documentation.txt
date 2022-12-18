@@ -50,6 +50,11 @@ Checking all routes:
 Migrate:
     php artisan migrate
 
+create a model ánd the migration alongside it
+    php artisan make:model Profile -m
+
+create profile controller and api methods
+    php artisan make:controller ProfileController --api
 
 
 
