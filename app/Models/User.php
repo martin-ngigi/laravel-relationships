@@ -48,7 +48,7 @@ class User extends Authenticatable
      * Get the phone associated with the user.
      */
     public function phone(){
-        return $this->hasOne(Phone::class, 'foreign_key');
+        return $this->hasOne(Phone::class);
     }
 
     /**

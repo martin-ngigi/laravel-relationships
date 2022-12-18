@@ -72,3 +72,11 @@ Route::get('/users/search/{name}', [UserController::class,'search']);
  */
 //
 Route::post('/profile/create', [ProfileController::class, 'store']);
+
+
+//GET USER REOURCE, IE NESTED USER OBJECT
+/**
+ * 'get_user_resource' is a method defined in the UserController
+ *  http://127.0.0.1:8000/api/user_resource
+ */
+Route::get('/user_resource', [UserController::class, 'get_user_resource']);

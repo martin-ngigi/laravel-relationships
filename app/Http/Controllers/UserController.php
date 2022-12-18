@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -93,4 +94,12 @@ class UserController extends Controller
     public function search($name){
         return User::where('name','like','%'.$name.'%')->get();
     }
+
+    //get user resource i.e. nested object of profile inside user
+    public function get_user_resource(){
+          //return User::find(1)->profile;
+        $users = User::orderBy('id','DESC')->get();
+        return UserResource::collection($users);
+    }
+
 }

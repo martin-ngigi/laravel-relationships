@@ -71,3 +71,52 @@ reponse
 endpoint ->  http://127.0.0.1:8000/api/users/delete/1
 
 6. search user
+enpoint -> http://127.0.0.1:8000/api/users/search/simon
+response:
+[
+    {
+        "id": 1,
+        "name": "Simon",
+        "email": "simon@gmail.com",
+        "email_verified_at": null,
+        "created_at": "2022-12-18T18:19:42.000000Z",
+        "updated_at": "2022-12-18T18:19:42.000000Z"
+    }
+]
+
+7. POST - Create a new profile
+endpoint ->
+body:
+{
+    "user_id":1,
+    "profile_name": "profile one"
+}
+response:
+{
+    "user_id": 1,
+    "profile_name": "profile one",
+    "updated_at": "2022-12-18T20:08:41.000000Z",
+    "created_at": "2022-12-18T20:08:41.000000Z",
+    "id": 6
+}
+
+8. GET USER RESOURCE I.E nested user object
+enpoint -> http://127.0.0.1:8000/api/user_resource
+response :
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Simon",
+            "email": "simon@gmail.com",
+            "profile_name": "profile one",
+            "profile": {
+                "id": 1,
+                "user_id": 1,
+                "profile_name": "profile one",
+                "created_at": "2022-12-18T16:58:11.000000Z",
+                "updated_at": "2022-12-18T16:58:11.000000Z"
+            }
+        }
+    ]
+}
