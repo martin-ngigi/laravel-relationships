@@ -41,3 +41,11 @@ Route::get('/users/all', [UserController::class, 'index']);
  */
 Route::get('/users/{id}', [UserController::class,'show']);
 
+
+/**
+ * 'update' is a method defined in the UserController
+ *
+ * http://127.0.0.1:8000/api/users/update/1
+ */
+Route::put('/users/update/{id}', [UserController::class,'update']);
+
