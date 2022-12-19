@@ -45,7 +45,7 @@ class ProfileController extends Controller
 
         //METHOD 3
         $user = User::find($request->user_id);
-        $profile = $user->profile()->create([
+        $profile = $user->profile()->create([ //profile() is a method defined in User.php
             'user_id' => $request->user_id,
             'profile_name' => $request->profile_name
             //or

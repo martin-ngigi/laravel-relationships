@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -88,3 +89,10 @@ Route::get('/user_resource', [UserController::class, 'get_user_resource']);
  *  http://127.0.0.1:8000/api/create/phone
  */
 Route::post('/create/phone', [PhoneController::class, 'store']);
+
+//CREATE POST ---- oneToMany relationship
+/**
+ * 'store' is a method defined in the PostController
+ *  http://127.0.0.1:8000/api/create/posts
+ */
+Route::post('/create/posts', [PostController::class, 'store']);

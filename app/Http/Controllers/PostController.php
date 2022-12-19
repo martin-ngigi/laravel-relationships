@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Phone;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Profile;
+use App\Models\User;
 
-class PhoneController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,6 +20,7 @@ class PhoneController extends Controller
     }
 
     /**
+     * POST/CREATE A Post
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -26,34 +28,36 @@ class PhoneController extends Controller
      */
     public function store(Request $request)
     {
-        //METHOD 1
-        // $this->validate($request, [
-        //     'user_id' =>'required',
-        //     'phone_number' =>'required',
-        //     'phone_description'=>'required',
-        // ]);
-        // return Phone::create($request->all());
+        //
+        $this->validate($request, [
+            'profile_id'=>'required',
+            'title'=>'required',
+            'description'=>'required'
+        ]);
 
+        //Method 1
+        // return Post::create($request->all());
 
         //METHOD 2
-        // $user = User::find($request->user_id);
-        // $phone = new Phone();
-        // $phone->user_id = $user->id;
-        // $phone->phone_number = $request->phone_number;
-        // $phone->phone_description = $request->phone_description;
-        // $phone->save();
-        // return response()->json(['success' => "Phone created successfully", 'phone'=>$phone]);
+        // $profile = Profile::find($request->profile_id);
+        // $post = new Post();
+        // $post->profile_id = $profile->id;
+        // $post->title = $request->title;
+        // $post->description = $request->description;
+        // $post->save();
+        // return response()->json(['success' => "Post created successfully", 'profile'=>$post]);
 
-        //METHOD 3
-        $user = User::find($request->user_id);
-        $phone = $user->phone()->create([ //phone() is a method defined in User.php
-            'user_id' => $request->user_id,
-            'phone_number' => $request->phone_number,
-            'phone_description' => $request->phone_description,
+        //Method 3
+        $profile=Profile::find($request->profile_id);
+        $post = $profile->posts()->create([ //posts() is a method defined in Profile.php
+            'profile_id' => $request->profile_id,
+            'title' => $request->title,
+            'description' => $request->description,
             //or
             //$request->all()
         ]);
-        return $phone;
+        return $post;
+
     }
 
     /**

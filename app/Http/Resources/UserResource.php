@@ -22,6 +22,7 @@ class UserResource extends JsonResource
             'profile' => $this->profile,
             'phone_number' => $this->phone->phone_number, //   WORKING ;-)
             'phone'=>$this->phone,
+            'posts'=>$this->profile->posts,
         ];
     }
 }

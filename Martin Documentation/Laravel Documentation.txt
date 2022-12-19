@@ -57,8 +57,15 @@ create profile controller and api methods
     php artisan make:controller ProfileController --api
 
 
+create a model ánd the migration alongside it
+    php artisan make:model Post -m
 
-
+POST
+create profile controller and api methods
+    php artisan make:controller PostController --api
+-> rename the post migration to something else then... migrate
+Migrate:
+    php artisan migrate
 
 
 
