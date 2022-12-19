@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProfileResource;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,6 +17,11 @@ class ProfileController extends Controller
     public function index()
     {
         //
+                //return Profile::all();
+
+        //return Profile::find(1)->lastestPost;
+        $profile = Profile::orderBy('id','DESC')->get();
+        return ProfileResource::collection($profile);
     }
 
     /**
@@ -86,5 +92,13 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function get_latest_profile_post_resource(){
+        //return Profile::all();
+
+        //return Profile::find(1)->lastestPost;
+        $profile = Profile::orderBy('id','DESC')->get();
+        return ProfileResource::collection($profile);
     }
 }

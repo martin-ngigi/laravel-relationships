@@ -76,7 +76,7 @@ Route::get('/users/search/{name}', [UserController::class,'search']);
 Route::post('/profile/create', [ProfileController::class, 'store']);
 
 
-//GET USER REOURCE, IE NESTED USER OBJECT
+//GET USER REOURCE, IE NESTED USER OBJECT ---------------------------------------------------------------------<<<<--------------------------
 /**
  * 'get_user_resource' is a method defined in the UserController
  *  http://127.0.0.1:8000/api/user_resource
@@ -86,13 +86,20 @@ Route::get('/user_resource', [UserController::class, 'get_user_resource']);
 //CREATE PHONE
 /**
  * 'store' is a method defined in the PhoneController
- *  http://127.0.0.1:8000/api/create/phone
+ *  http://127.0.0.1:8000/api/phone/create
  */
-Route::post('/create/phone', [PhoneController::class, 'store']);
+Route::post('/phone/create', [PhoneController::class, 'store']);
 
 //CREATE POST ---- oneToMany relationship
 /**
  * 'store' is a method defined in the PostController
- *  http://127.0.0.1:8000/api/create/posts
+ *  http://127.0.0.1:8000/api/posts/create
  */
-Route::post('/create/posts', [PostController::class, 'store']);
+Route::post('/posts/create', [PostController::class, 'store']);
+
+//CREATE POST ---- oneToMany relationship
+/**
+ * 'index' is a method defined in the PostController
+ *  http://127.0.0.1:8000/api/profile/get-profile
+ */
+Route::get('/profile/get-profile', [ProfileController::class, 'index']);

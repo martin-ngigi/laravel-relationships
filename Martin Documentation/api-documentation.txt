@@ -268,3 +268,62 @@ response :
         }
     ]
 }
+
+13. Get profile
+endpoint ->  http://127.0.0.1:8000/api/profile/get-profile
+response:
+{
+    "data": [
+        {
+            "id": 6,
+            "profile_name": "profile one",
+            "created_at": "2022-12-18T20:08:41.000000Z",
+            "laest_posts": []
+        },
+        {
+            "id": 5,
+            "profile_name": "profile one",
+            "created_at": "2022-12-18T18:24:23.000000Z",
+            "laest_posts": []
+        },
+        {
+            "id": 1,
+            "profile_name": "profile one",
+            "created_at": "2022-12-18T16:58:11.000000Z",
+            "laest_posts": [
+                {
+                    "id": 1,
+                    "profile_id": 1,
+                    "title": "Post 1",
+                    "description": "This is post 1",
+                    "created_at": "2022-12-19T05:52:24.000000Z",
+                    "updated_at": "2022-12-19T05:52:24.000000Z"
+                },
+                {
+                    "id": 2,
+                    "profile_id": 1,
+                    "title": "Post 2",
+                    "description": "This is post 2",
+                    "created_at": "2022-12-19T05:53:48.000000Z",
+                    "updated_at": "2022-12-19T05:53:48.000000Z"
+                },
+                {
+                    "id": 3,
+                    "profile_id": 1,
+                    "title": "Post 3",
+                    "description": "This is post 3",
+                    "created_at": "2022-12-19T06:00:00.000000Z",
+                    "updated_at": "2022-12-19T06:00:00.000000Z"
+                },
+                {
+                    "id": 4,
+                    "profile_id": 1,
+                    "title": "Post 3",
+                    "description": "This is post 3",
+                    "created_at": "2022-12-19T06:28:02.000000Z",
+                    "updated_at": "2022-12-19T06:28:02.000000Z"
+                }
+            ]
+        }
+    ]
+}
